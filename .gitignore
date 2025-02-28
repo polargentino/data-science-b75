@@ -1,0 +1,15 @@
+# Ignorar el entorno virtual
+env/
+
+# Ignorar archivos generados por Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos temporales o de edición
+*.log
+*.tmp
+*.swp
+
+# Ignorar archivos grandes o no necesarios
+*.zip
+# *.tar.gz
