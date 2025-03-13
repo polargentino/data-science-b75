@@ -78,7 +78,20 @@ plt.title("Retraso promedio de llegada para vuelos de Spirit Airlines, por mes")
 # Utiliza seaborn para crear un gráfico de barras
 # x=flight_data.index especifica el índice (meses) como el eje x
 # y=flight_data['NK'] especifica la columna 'NK' (Spirit Airlines) como el eje y
-sns.barplot(x=flight_data.index, y=flight_data['NK'])
+# sns.barplot(x=flight_data.index, y=flight_data['NK']) # color azul
+# Utiliza una paleta de colores diferente (por ejemplo, "husl")
+sns.barplot(x=flight_data.index, y=flight_data['NK'], palette="colorblind")
+# Otras paletas de colores:
+
+# seaborn ofrece muchas paletas de colores diferentes. Algunas opciones populares son:
+# "husl"
+# "deep"
+# "muted"
+# "pastel"
+# "bright"
+# "dark"
+# "colorblind"
+
 
 # Agrega una etiqueta al eje y (eje vertical)
 plt.ylabel("Retraso de llegada (en minutos)")
