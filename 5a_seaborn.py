@@ -74,3 +74,13 @@ plt.show()
 #   warnings.warn(msg, UserWarning)
 # /home/pol/Desktop/data-science-b75/env/lib/python3.10/site-packages/seaborn/categorical.py:3399: UserWarning: 45.6% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
 #   warnings.warn(msg, UserWarning)
+
+# Analísis de Gemini foto insurance_1.png: Conclusiones:
+
+# El swarmplot muestra claramente que el tabaquismo está fuertemente 
+# asociado con costos de seguro más altos.
+# Los fumadores no solo pagan más en promedio, sino que también tienen 
+# una mayor variabilidad en sus costos.
+# Este gráfico es una herramienta efectiva para visualizar la 
+# distribución de una variable numérica en relación con una variable 
+# categórica y para identificar diferencias significativas entre grupos.
