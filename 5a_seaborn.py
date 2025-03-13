@@ -1,3 +1,62 @@
+"""
+Comentarios Detallados:
+
+Cargar y examinar los datos:
+
+insurance_filepath = "~/Downloads/insurance.csv": Define la ruta del archivo insurance.csv. 
+¡Asegúrate de ajustar esta ruta a la ubicación real del archivo en tu sistema!
+
+insurance_data = pd.read_csv(insurance_filepath): Lee el archivo CSV y lo carga en un 
+DataFrame llamado insurance_data.
+
+insurance_data.head(): Muestra las primeras 5 filas del DataFrame para verificar la carga.
+I've added to_markdown to display the dataframe in a more readable format in the output.
+
+Diagrama de dispersión básico:
+------------------------------
+
+sns.scatterplot(x=insurance_data['bmi'], y=insurance_data['charges']): Crea un 
+diagrama de dispersión con 'bmi' en el eje x e 'charges' en el eje y.
+plt.figure(figsize=(8, 6)): Adjust the figure size to make the plot more readable.
+plt.title(): Add relevant titles to the plot, and x and y axis.
+
+Diagrama de dispersión con línea de regresión:
+----------------------------------------------
+
+sns.regplot(x=insurance_data['bmi'], y=insurance_data['charges']): Crea un diagrama 
+de dispersión con una línea de regresión que muestra la tendencia general de la 
+relación entre 'bmi' y 'charges'.
+plt.figure(figsize=(8, 6)): Adjust the figure size to make the plot more readable.
+plt.title(): Add relevant titles to the plot, and x and y axis.
+
+Diagrama de dispersión con codificación de color:
+-------------------------------------------------
+
+sns.scatterplot(x=insurance_data['bmi'], y=insurance_data['charges'], 
+hue=insurance_data['smoker']): Crea un diagrama de dispersión donde los 
+puntos se colorean según la columna 'smoker', permitiendo visualizar la 
+influencia del tabaquismo en la relación entre 'bmi' y 'charges'.
+plt.figure(figsize=(8, 6)): Adjust the figure size to make the plot more readable.
+plt.title(): Add relevant titles to the plot, and x and y axis.
+plt.legend(title="Smoker"): Add a title to the legend.
+
+Diagrama de dispersión con líneas de regresión separadas:
+--------------------------------------------------------
+
+sns.lmplot(x="bmi", y="charges", hue="smoker", data=insurance_data): Crea un 
+diagrama de dispersión con líneas de regresión separadas para fumadores y no 
+fumadores, mostrando cómo la relación entre 'bmi' y 'charges' difiere según el tabaquismo.
+plt.figure(figsize=(8, 6)): Adjust the figure size to make the plot more readable.
+plt.title(): Add relevant titles to the plot, and x and y axis.
+
+Diagrama de dispersión categórico (Swarm Plot):
+-----------------------------------------------
+
+sns.swarmplot(x=insurance_data['smoker'], y=insurance_data['charges']): Crea un diagrama de dispersión categórico (swarm plot) que muestra la distribución de 'charges' para fumadores y no fumadores, permitiendo comparar las distribuciones y observar la presencia de outliers.
+plt.figure(figsize=(8, 6)): Adjust the figure size to make the plot more readable.
+plt.title(): Add relevant titles to the plot, and x and y axis.
+"""
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
