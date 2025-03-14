@@ -8,14 +8,20 @@ import os
 
 def analizar_datos_autos(csv_file):
     """
-    Analiza un conjunto de datos de autos utilizando técnicas de preprocesamiento, selección de características y visualización.
+    Analiza un conjunto de datos de autos utilizando técnicas de preprocesamiento, 
+    selección de características y visualización.
 
     Este script realiza las siguientes operaciones:
+    -----------------------------------------------
     1. Carga un conjunto de datos desde un archivo CSV especificado.
-    2. Realiza un preprocesamiento básico de datos, incluyendo la conversión de variables categóricas a numéricas mediante label encoding.
-    3. Calcula las puntuaciones de información mutua entre las características y la variable objetivo (precio).
-    4. Visualiza las puntuaciones de información mutua para identificar las características más relevantes.
-    5. Realiza visualizaciones de datos para explorar relaciones entre variables específicas.
+    2. Realiza un preprocesamiento básico de datos, incluyendo la conversión de 
+    variables categóricas a numéricas mediante label encoding.
+    3. Calcula las puntuaciones de información mutua entre las características y 
+    la variable objetivo (precio).
+    4. Visualiza las puntuaciones de información mutua para identificar las 
+    características más relevantes.
+    5. Realiza visualizaciones de datos para explorar relaciones entre 
+    variables específicas.
 
     Args:
         csv_file (str): La ruta al archivo CSV que contiene los datos de los autos.
@@ -25,10 +31,12 @@ def analizar_datos_autos(csv_file):
 
     Raises:
         FileNotFoundError: Si el archivo CSV especificado no se encuentra.
-        Exception: Si ocurre algún error durante el procesamiento de los datos o la visualización.
+        Exception: Si ocurre algún error durante el procesamiento de los 
+        datos o la visualización.
 
     Ejemplo:
-        Para ejecutar el script, asegúrate de tener instalado pandas, numpy, seaborn y scikit-learn.
+        Para ejecutar el script, asegúrate de tener instalado pandas, 
+        numpy, seaborn y scikit-learn.
         Luego, llama a la función con la ruta al archivo CSV:
 
         >>> analizar_datos_autos("/home/pol/Downloads/autos.csv")
@@ -55,7 +63,8 @@ def analizar_datos_autos(csv_file):
         # 3. Función para calcular las puntuaciones de información mutua
         def make_mi_scores(X, y, discrete_features):
             """
-            Calcula las puntuaciones de información mutua entre las características y la variable objetivo.
+            Calcula las puntuaciones de información mutua entre las características y 
+            la variable objetivo.
 
             Args:
                 X (DataFrame): Conjunto de características.
@@ -79,7 +88,8 @@ def analizar_datos_autos(csv_file):
         # 4. Función para graficar las puntuaciones de información mutua
         def plot_mi_scores(scores):
             """
-            Grafica las puntuaciones de información mutua en un gráfico de barras horizontales.
+            Grafica las puntuaciones de información mutua en un gráfico de 
+            barras horizontales.
 
             Args:
                 scores (Series): Puntuaciones de información mutua.
@@ -97,12 +107,16 @@ def analizar_datos_autos(csv_file):
         plt.show()
 
         # 5. Visualización de datos: Relación entre curb_weight y price
-        # - Utiliza seaborn para crear un gráfico de dispersión que muestra la relación entre el peso del vehículo y su precio
+        # - Utiliza seaborn para crear un gráfico de dispersión que muestra la 
+        # relación entre el peso del vehículo y su precio
         sns.relplot(x="curb_weight", y="price", data=df)
         plt.show()
 
-        # Visualización de datos: Relación entre horsepower y price, diferenciado por fuel_type
-        # - Utiliza seaborn para crear un gráfico de regresión lineal que muestra la relación entre la potencia del motor y el precio, diferenciado por tipo de combustible
+        # Visualización de datos: Relación entre horsepower y price, diferenciado por 
+        # fuel_type
+        # - Utiliza seaborn para crear un gráfico de regresión lineal que muestra 
+        # la relación entre la potencia del motor y el precio, diferenciado por 
+        # tipo de combustible
         sns.lmplot(x="horsepower", y="price", hue="fuel_type", data=df)
         plt.show()
 
@@ -127,13 +141,19 @@ analizar_datos_autos(csv_file)
 # Name: MI Scores, dtype: float64
 
 # Análisis de gráfico: por Perplexity: (características_1.png)
-
-# Respuesta
-# La imagen muestra un gráfico de barras horizontales que representa las puntuaciones de información mutua (MI Scores) entre las características del conjunto de datos y la variable objetivo, que en este caso es el precio de los autos. La información mutua mide la dependencia estadística entre dos variables, indicando qué tan informativa es una característica para predecir la variable objetivo.
+# -----------------------------------
+# Respuesta:
+# -----------
+# La imagen muestra un gráfico de barras horizontales que representa 
+# las puntuaciones de información mutua (MI Scores) entre las 
+# características del conjunto de datos y la variable objetivo, que 
+# en este caso es el precio de los autos. La información mutua mide la 
+# dependencia estadística entre dos variables, indicando qué tan 
+# informativa es una característica para predecir la variable objetivo.
 
 # Análisis del Gráfico
 # Características Más Relevantes:
-
+# -------------------------------
 # curb_weight (peso del vehículo) tiene la puntuación más alta, 
 # lo que indica que es la característica más informativa para predecir el precio.
 
@@ -141,8 +161,8 @@ analizar_datos_autos(csv_file)
 # también tienen puntuaciones altas, lo que sugiere que son factores 
 # clave en la determinación del precio de un auto.
 
-#Características Moderadamente Informativas:
-
+# Características Moderadamente Informativas:
+# -------------------------------------------
 # Variables como highway_mpg (rendimiento en carretera), city_mpg 
 # (rendimiento en ciudad), width (ancho del vehículo), y length (longitud) 
 # tienen puntuaciones intermedias. Esto indica que estas características 
@@ -150,27 +170,28 @@ analizar_datos_autos(csv_file)
 # como las principales.
 
 # Características Menos Informativas:
-
+# -----------------------------------
 # Al final de la lista se encuentran características como fuel_type 
 # (tipo de combustible), engine_location (ubicación del motor), 
 # y num_of_doors (número de puertas). Estas tienen puntuaciones bajas, 
 # lo que sugiere que tienen poca o ninguna relevancia para predecir el precio.
 
 # Interpretación General:
-
+# -----------------------
 # Las características relacionadas con el rendimiento, tamaño y peso del 
 # vehículo tienden a ser más relevantes para determinar su precio. Esto es 
 # coherente con el hecho de que estos factores suelen influir directamente 
 # en los costos de fabricación y percepción de calidad.
 
 # Uso Práctico:
-
+# -------------
 # Este análisis puede ser utilizado para reducir la dimensionalidad del 
 # conjunto de datos, seleccionando solo las características más relevantes 
 # (curb_weight, horsepower, engine_size, etc.) para entrenar modelos 
 # predictivos, lo cual podría mejorar el rendimiento y eficiencia del modelo.
 
-# Conclusión
+# Conclusión:
+# -----------
 # El gráfico proporciona una visión clara sobre cuáles características 
 # deben priorizarse al construir un modelo predictivo para estimar el 
 # precio de los autos. Las características con puntuaciones más altas 
