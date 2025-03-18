@@ -2,21 +2,37 @@
 Explicación Detallada:
 
 Importaciones: Se importan las bibliotecas necesarias.
+
 Configuración de Estilo: Se configura el estilo de los gráficos con seaborn-whitegrid.
+
 plot_variance: Función para visualizar la varianza explicada por los componentes principales.
+
 make_mi_scores: Función para calcular las puntuaciones de información mutua.
+
 Carga de Datos: Se carga el archivo CSV autos.csv.
+
 Selección de Características: Se seleccionan las características relevantes.
+
 Estandarización: Se estandarizan las características numéricas.
+
 PCA: Se aplica PCA para obtener los componentes principales.
+
 DataFrame de Componentes: Se crea un DataFrame con los componentes principales.
+
 Visualización de Componentes: Se muestran los primeros registros del DataFrame de componentes.
+
 DataFrame de Cargas: Se crea un DataFrame con las cargas de PCA.
+
 Visualización de Varianza: Se visualiza la varianza explicada por los componentes.
+
 Puntuaciones MI: Se calculan las puntuaciones de información mutua.
+
 Ordenamiento por PC3: Se ordena el DataFrame original por PC3.
+
 Nueva Característica: Se crea la característica sports_or_wagon.
-Visualización de Relación: Se visualiza la relación entre la nueva característica y el precio.
+
+Visualización de Relación: Se visualiza la relación entre la nueva característica 
+y el precio.
 """
 
 
@@ -222,6 +238,7 @@ plt.show()
 # La creación de la nueva característica "sports_or_wagon" y su visualización ayudan a entender mejor la relación entre las características originales y el precio.
 
 # Análisis del gráfico características_9.png:
+# -------------------------------------------
 # Claro, vamos a analizar el gráfico que has proporcionado:
 
 # Título: No se proporciona un título en la imagen, pero podemos inferir que se trata de la relación entre la característica "sports_or_wagon" y el precio ("price").
