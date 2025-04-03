@@ -1,57 +1,48 @@
-import numpy as np  # Librería para álgebra lineal
-import pandas as pd  # Librería para procesamiento de datos (CSV, I/O)
-from sklearn.ensemble import RandomForestClassifier  # Modelo de Random Forest
+import pandas as pd
 
-# 1. Cargar los datos de entrenamiento
-train_data = pd.read_csv("~/Downloads/titanic/train.csv")
-# Mostrar las primeras 5 filas del DataFrame train_data
-print("Primeras 5 filas de train.csv:")
-print(train_data.head())
+# Ruta al archivo train.csv
+file_path = "/home/pol/Downloads/train.csv"  # Replace with your actual path if different.
 
-# 2. Cargar los datos de prueba
-test_data = pd.read_csv("~/Downloads/titanic/test.csv")
-# Mostrar las primeras 5 filas del DataFrame test_data
-print("\nPrimeras 5 filas de test.csv:")
-print(test_data.head())
+# Carga de datos
+titanic_data = pd.read_csv(file_path)
 
-# 3. Análisis exploratorio de datos (EDA) - Patrón de género
-# Calcular la tasa de supervivencia de las mujeres
-women = train_data.loc[train_data.Sex == 'female']["Survived"]
-rate_women = sum(women) / len(women)
-print("\n% de mujeres que sobrevivieron:", rate_women)
+# Número de pasajeros totales
+total = len(titanic_data)
+print(f"Total passengers: {total}")
 
-# Calcular la tasa de supervivencia de los hombres
-men = train_data.loc[train_data.Sex == 'male']["Survived"]
-rate_men = sum(men) / len(men)
-print("% de hombres que sobrevivieron:", rate_men)
+# Número de pasajeros que sobrevivieron
+survived = (titanic_data.Survived == 1).sum()
+print(f"Survived: {survived}")
 
-# 4. Preparación de los datos para el modelo
-# Seleccionar la columna 'Survived' como variable objetivo (y)
-y = train_data["Survived"]
+# Número de pasajeros menores de 18 años
+minors = (titanic_data.Age < 18).sum()
+print(f"Minors: {minors}")
 
-# Seleccionar las características (features) para el modelo
-features = ["Pclass", "Sex", "SibSp", "Parch"]
+# Fracción de sobrevivientes
+survived_fraction = survived / total
+print(f"Survived fraction: {survived_fraction}")
 
-# Convertir las características categóricas (Sex) en variables dummy (one-hot encoding)
-X = pd.get_dummies(train_data[features])
-X_test = pd.get_dummies(test_data[features])
+# Fracción de menores
+minors_fraction = minors / total
+print(f"Minors fraction: {minors_fraction}")
 
-# 5. Crear y entrenar el modelo de Random Forest
-# Crear una instancia del modelo RandomForestClassifier
-model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
+# Funciones de ayuda (q5) - Placeholder
+class q5:
+    @staticmethod
+    def check():
+        print("Checking...")
 
-# Entrenar el modelo con los datos de entrenamiento
-model.fit(X, y)
+    @staticmethod
+    def hint():
+        print("Hint: Divide the count by the total.")
 
-# 6. Generar las predicciones para los datos de prueba
-predictions = model.predict(X_test)
+    @staticmethod
+    def solution():
+        print("Solution:")
+        print(f"survived_fraction = {survived / total}")
+        print(f"minors_fraction = {minors / total}")
 
-# 7. Crear el archivo de envío (submission.csv)
-# Crear un DataFrame con los PassengerId y las predicciones
-output = pd.DataFrame({'PassengerId': test_data.PassengerId, 'Survived': predictions})
-
-# Guardar el DataFrame en un archivo CSV llamado submission.csv
-output.to_csv('submission.csv', index=False)
-
-# Imprimir un mensaje de confirmación
-print("\nTu envío fue guardado exitosamente!")
+# Llamadas a las funciones de ayuda (si las tienes)
+q5.check()
+q5.hint()
+q5.solution()
