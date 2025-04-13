@@ -8,7 +8,7 @@ file_path = "/home/pol/Downloads/train.csv"
 # Carga de datos
 titanic_data = pd.read_csv(file_path)
 
-# --- Análisis básico ---
+# --- Análisis básico por pol---
 
 # Número de pasajeros totales
 total = len(titanic_data)
